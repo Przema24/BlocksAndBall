@@ -9,7 +9,7 @@ public class LifeManager : MonoBehaviour
     public static LifeManager instance;
     [SerializeField] private Image losePanel;
 
-    [SerializeField] private int lifeCount = 3;
+    public int lifeCount = 3;
     [SerializeField] private GameObject hearthPrefab;
     [SerializeField] private Vector3 hearthPosition;
     [SerializeField] private Vector3 offset;
@@ -44,6 +44,7 @@ public class LifeManager : MonoBehaviour
         {
             losePanel.gameObject.SetActive(true);
             PlayerInputController.Instance.gameObject.SetActive(false);
+            lifeCount = 3;
         }
         else
         {
@@ -58,7 +59,7 @@ public class LifeManager : MonoBehaviour
 
     }
 
-    private void RenderHearths()
+    public void RenderHearths()
     {
         for (int i = 0; i < lifeCount; i++)
         {
