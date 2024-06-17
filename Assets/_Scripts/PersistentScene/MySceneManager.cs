@@ -51,9 +51,11 @@ public class MySceneManager : MonoBehaviour
         }
     }
 
-    public void LoadNextLevel(int index)
+    public void LoadNextLevel()
     {
-        LoadScene(index);
+        int index = targetScene.buildIndex;
+        SceneManager.UnloadSceneAsync(index);
+        LoadScene(index + 1);
     }
     public void RestartGame()
     {
