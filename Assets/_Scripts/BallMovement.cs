@@ -47,10 +47,8 @@ public class BallMovement : MonoBehaviour
 
     private IEnumerator ChangeDirection(Collision2D collision)
     {
-
         ContactPoint2D contact = collision.contacts[0];
         Vector2 normal = contact.normal;
-
         Vector2 reflectDirection = Vector2.Reflect(direction, normal);
         rb.velocity = reflectDirection * speed * speedMultiplier;
         direction = rb.velocity.normalized;
